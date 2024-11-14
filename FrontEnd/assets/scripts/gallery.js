@@ -1,7 +1,7 @@
 let projects;
 let gallery = document.getElementById("gallery");
 
-async function getData() {
+async function getGalleryData() {
   const url = "http://localhost:5678/api/works";
   try {
     const response = await fetch(url);
@@ -42,4 +42,4 @@ function createCaption(title) {
   return newCaption;
 }
 
-getData();
+getGalleryData();

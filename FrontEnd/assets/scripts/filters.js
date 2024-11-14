@@ -2,7 +2,7 @@ let filtersList = new Set();
 let filters = document.getElementById("filters");
 let currentFilter = null;
 
-async function getData() {
+async function getFiltersData() {
   const url = "http://localhost:5678/api/categories";
   try {
     const response = await fetch(url);
@@ -54,5 +54,3 @@ function filterClick(id) {
 
   updateGallery(id);
 }
-
-getData();

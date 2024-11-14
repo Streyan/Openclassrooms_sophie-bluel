@@ -30,11 +30,16 @@
     <main>
       <section id="login">
         <h2>Log In</h2>
-        <form action="#" method="post">
+        <form
+          action="javascript:;"
+          onSubmit="getLogin(document.getElementById('email').value, document.getElementById('password').value)"
+          method="post"
+        >
           <label for="email">Email</label>
           <input type="email" name="email" id="email" />
           <label for="password">Mot de passe</label>
           <input type="password" name="password" id="password" />
+          <div id="error"></div>
           <input type="submit" value="Se connecter" />
         </form>
         <a href="#"><p>Mot de passe oublié</p></a>
@@ -48,7 +53,6 @@
         </ul>
       </nav>
     </footer>
-    <script src="./assets/scripts/gallery.js"></script>
-    <script src="./assets/scripts/filters.js"></script>
+    <script src="./assets/scripts/login.js"></script>
   </body>
 </html>
