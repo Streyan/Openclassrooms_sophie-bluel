@@ -9,23 +9,24 @@ async function getGalleryData() {
       throw new Error(`Response status: ${response.status}`);
     }
 
-    projects = await response.json();
-    updateGallery(0);
+    return await response.json();
   } catch (error) {
     console.error(error.message);
   }
 }
 
 function updateGallery(categoryId) {
-  gallery.innerHTML = "";
+  getGalleryData().then((projects) => {
+    gallery.innerHTML = "";
 
-  projects.forEach((project) => {
-    if (categoryId == 0 || project.categoryId == categoryId) {
-      let newProject = document.createElement("figure");
-      newProject.appendChild(createImage(project));
-      newProject.appendChild(createCaption(project.title));
-      gallery.appendChild(newProject);
-    }
+    projects.forEach((project) => {
+      if (categoryId == 0 || project.categoryId == categoryId) {
+        let newProject = document.createElement("figure");
+        newProject.appendChild(createImage(project));
+        newProject.appendChild(createCaption(project.title));
+        gallery.appendChild(newProject);
+      }
+    });
   });
 }
 
@@ -42,4 +43,4 @@ function createCaption(title) {
   return newCaption;
 }
 
-getGalleryData();
+updateGallery(0);

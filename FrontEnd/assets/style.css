@@ -180,6 +180,18 @@ nav li {
 li:hover {
   color: #b1663c;
 }
+
+.header {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 1em;
+}
+
 #introduction {
   display: flex;
   align-items: center;
@@ -203,9 +215,26 @@ li:hover {
 #introduction p {
   margin-bottom: 0.5em;
 }
+
+.portfolio-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+  gap: 30px;
+}
+
 #portfolio h2 {
   text-align: center;
-  margin-bottom: 1em;
+}
+
+.edition {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .filters {
@@ -323,4 +352,68 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+}
+
+#modale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-wrapper {
+  overflow: auto;
+  max-width: calc(100vw - 20px);
+  max-height: calc(100vh - 20px);
+  width: 600px;
+  padding: 20px;
+  background-color: white;
+}
+
+.galleryModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.galleryModal .closeModal {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+.galleryModal h1 {
+  font-family: "Work Sans";
+  font-size: 26px;
+  color: black;
+}
+
+.gallery-modal {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.figure-modal {
+  position: relative;
+}
+
+.gallery-modal img {
+  width: 100%;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
 }

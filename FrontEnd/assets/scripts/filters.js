@@ -54,3 +54,13 @@ function filterClick(id) {
 
   updateGallery(id);
 }
+
+function showFilters() {
+  filters.style.display = "flex";
+}
+
+function hideFilters() {
+  filters.style.display = "none";
+}
+
+getFiltersData();
