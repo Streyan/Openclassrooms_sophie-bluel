@@ -2,7 +2,7 @@ function getGalleyModale() {
   return `
     <div class="modal-wrapper">
       <div class="galleryModal">
-        <div class="closeModal">
+        <div class="modal_header">
           <a onclick="hideModal()">
             X
           </a>
@@ -10,7 +10,9 @@ function getGalleyModale() {
         <h1 class="title">Galerie photo</h1>
         <div id="gallery-modal" class="gallery-modal"></div>
         <div class="separator"></div>
-        <input type="submit" value="Ajouter une photo" />
+        <a onclick="showAddModal()">
+            Ajouter une photo
+          </a>
       </div>
     </div>;
   `;

@@ -130,6 +130,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+div {
+  box-sizing: border-box;
+}
 /** end reset css**/
 body {
   max-width: 1140px;
@@ -416,4 +419,68 @@ footer nav ul {
   position: absolute;
   top: 0.2rem;
   right: 0.2rem;
+}
+
+.inside_modal {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 15px;
+  padding: 2em;
+}
+
+.modal_header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#add form {
+  width: 100%;
+}
+
+.add_picture {
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  background-color: #e8f1f6;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+  padding: 2em;
+}
+
+.add_picture i {
+  font-size: 76px;
+  color: #b9c5cc;
+}
+
+.add_picture input {
+  background-color: #cbd6dc;
+  color: #306685;
+  border: none;
+  padding: 0.5em;
+  margin: 0px;
+}
+
+.input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  max-width: 420px;
+}
+
+.input input {
+  border: none;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+}
+
+.input label {
+  font-size: 14px;
 }
