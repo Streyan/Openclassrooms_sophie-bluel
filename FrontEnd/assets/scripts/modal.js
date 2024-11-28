@@ -16,6 +16,8 @@ function showGalleryModal() {
 
 function showAddModal() {
   modal.innerHTML = getAddModale();
+  previewImage();
+  setCategoriesValues();
 }
 
 hideModal();

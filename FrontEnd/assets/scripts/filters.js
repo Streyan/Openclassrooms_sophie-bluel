@@ -2,7 +2,7 @@ let filtersList = new Set();
 let filters = document.getElementById("filters");
 let currentFilter = null;
 
-async function getFiltersData() {
+async function getCategoriesData() {
   const url = "http://localhost:5678/api/categories";
   try {
     const response = await fetch(url);
@@ -10,14 +10,20 @@ async function getFiltersData() {
       throw new Error(`Response status: ${response.status}`);
     }
 
-    const json = await response.json();
-    json.forEach((filter) => {
-      filtersList.add(filter);
-    });
-    createFilters();
+    return await response.json();
   } catch (error) {
     console.error(error.message);
   }
+}
+
+function updateCategories() {
+  getCategoriesData().then((filters) => {
+    filters.forEach((filter) => {
+      filtersList.add(filter);
+    });
+
+    createFilters();
+  });
 }
 
 function createFilters() {
@@ -63,4 +69,4 @@ function hideFilters() {
   filters.style.display = "none";
 }
 
-getFiltersData();
+updateCategories();

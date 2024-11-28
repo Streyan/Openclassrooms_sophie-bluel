@@ -466,6 +466,11 @@ footer nav ul {
   margin: 0px;
 }
 
+.add_picture img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
 .input {
   width: 100%;
   display: flex;
