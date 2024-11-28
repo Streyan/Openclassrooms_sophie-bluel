@@ -12,6 +12,7 @@ function getAddModale() {
         </div>
         <h1 class="title">Ajout photo</h1>
         <form
+          id="myForm"
           action="javascript:;"
           onSubmit="addProject()"
           method="post"
@@ -21,7 +22,7 @@ function getAddModale() {
               <div id="image_preview">
                 <i class="fa-solid fa-image"></i>
               </div>
-              <input id="image_input" type="file" accept="image/png, image/jpeg" value="+ Ajouter Photo" />
+              <input id="image_input" type="file" name="image" id="image" accept="image/png, image/jpeg" value="+ Ajouter Photo" />
               <div>jpg, png : 4mo max</div>
             </div>
             <div class="input">
@@ -30,7 +31,7 @@ function getAddModale() {
             </div>
             <div class="input">
               <label for="category">Catégorie</label>
-              <input list="categories" name="category" id="category" />
+              <select list="categories" name="category" id="category" />
                 <datalist id="categories">
                 </datalist>
             </div>
@@ -49,7 +50,8 @@ function setCategoriesValues() {
     console.log(categories);
     categories.forEach((category) => {
       let newCategory = document.createElement("option");
-      newCategory.value = category.name;
+      newCategory.value = category.id;
+      newCategory.innerHTML = category.name;
       categoriesElement.appendChild(newCategory);
     });
   });
@@ -60,9 +62,11 @@ function previewImage() {
   const addPicture = document.getElementById("add_picture");
 
   input.addEventListener("change", function () {
-    console.log(input.value);
+    console.log(addPicture.children);
 
-    addPicture.innerHTML = "";
+    for (let i = 0; i < addPicture.children.length; i++) {
+      addPicture.children[i].style.display = "none";
+    }
 
     let newImage = document.createElement("img");
     newImage.src = URL.createObjectURL(input.files[0]);
@@ -74,20 +78,16 @@ function previewImage() {
 async function addProject() {
   const url = "http://localhost:5678/api/works";
   try {
+    var myForm = document.getElementById("myForm");
+    var formData = new FormData(myForm);
     const response = await fetch(url, {
       method: "POST",
       headers: {
         accept: "application/json",
-        Authorization: "Bearer " + window.localStorage.token,
-        "Content-Type": "multipart/form-data"
+        Authorization: "Bearer " + window.localStorage.token
       },
-      body: JSON.stringify({
-        title: "toto",
-        category: "1",
-        imageUrl: "http://localhost:5678/images/cellule1732722130074.png"
-      })
+      body: formData
     });
-    console.log(response);
     if (!response.ok) {
       if (response.status == 404) {
         //error.innerHTML = "User not found";
@@ -97,8 +97,8 @@ async function addProject() {
         throw new Error(`Response status: ${response.status}`);
       }
     } else {
-      token = await response.json();
-      console.log(token);
+      hideModal();
+      updateGallery(0);
     }
   } catch (error) {
     console.error(error.message);
