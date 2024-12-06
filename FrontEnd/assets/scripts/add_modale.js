@@ -33,9 +33,9 @@ function getAddModale() {
             </div>
             <div class="input">
               <label for="category">Catégorie</label>
-              <select list="categories" name="category" id="category" onChange="validateForm()"/>
-                <datalist id="categories">
-                </datalist>
+              <input list="categories" name="category" id="category" onChange="validateForm()"/>
+              <datalist id="categories">
+              </datalist>
             </div>
             <div class="separator"></div>
             <div id="error_modale"></div>
@@ -43,7 +43,7 @@ function getAddModale() {
           </div>
         </form>
       </div>
-    </div>;
+    </div>
   `;
 }
 
