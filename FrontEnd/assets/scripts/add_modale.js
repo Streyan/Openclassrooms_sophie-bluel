@@ -33,9 +33,8 @@ function getAddModale() {
             </div>
             <div class="input">
               <label for="category">Catégorie</label>
-              <input list="categories" name="category" id="category" onChange="validateForm()"/>
-              <datalist id="categories">
-              </datalist>
+              <select name="category" id="category" onChange="validateForm()">
+              </select>
             </div>
             <div class="separator"></div>
             <div id="error_modale"></div>
@@ -43,14 +42,14 @@ function getAddModale() {
           </div>
         </form>
       </div>
-    </div>
+    </div>;
   `;
 }
 
 function setCategoriesValues() {
-  const categoriesElement = document.getElementById("categories");
+  const categoriesElement = document.getElementById("category");
+
   getCategoriesData().then((categories) => {
-    console.log(categories);
     categories.forEach((category) => {
       let newCategory = document.createElement("option");
       newCategory.value = category.id;
@@ -66,8 +65,6 @@ function previewImage() {
   const addPicture = document.getElementById("add_picture");
 
   input.addEventListener("change", function () {
-    console.log(input.files[0]);
-
     if (
       input.files[0].type != "image/png" &&
       input.files[0].type != "image/jpeg"

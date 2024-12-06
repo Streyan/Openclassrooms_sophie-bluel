@@ -555,3 +555,13 @@ select {
 .small-text {
   font-size: 10px;
 }
+
+#error_modale,
+#error_file {
+  color: red;
+}
+
+#error {
+  margin: 1rem;
+  color: red;
+}
