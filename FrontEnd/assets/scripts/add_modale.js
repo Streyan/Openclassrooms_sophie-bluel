@@ -1,6 +1,6 @@
 function getAddModale() {
   return `
-    <div class="modal-wrapper">
+    <div id="modal-wrapper" class="modal-wrapper">
       <div id="add" class="galleryModal">
         <div class="modal_header">
           <a onclick="showGalleryModal()">

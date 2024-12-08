@@ -373,7 +373,7 @@ footer nav ul {
 }
 
 #modale {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   position: fixed;

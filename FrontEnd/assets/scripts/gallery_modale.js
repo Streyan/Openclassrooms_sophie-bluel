@@ -1,6 +1,6 @@
 function getGalleyModale() {
   return `
-    <div class="modal-wrapper">
+    <div id="modal-wrapper" class="modal-wrapper">
       <div class="galleryModal">
         <div class="modal_gallery_header">
           <a onclick="hideModal()">
