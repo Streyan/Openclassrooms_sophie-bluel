@@ -13,7 +13,6 @@ async function getLoginData(email, password) {
       },
       body: JSON.stringify({ email: email, password: password })
     });
-    console.log(response);
     if (!response.ok) {
       if (response.status == 404) {
         error.innerHTML = "User not found";

@@ -39,6 +39,7 @@ function createFilters() {
 function createButton(id, name) {
   let newButton = document.createElement("div");
   newButton.classList.add("button");
+  newButton.classList.add("link");
   newButton.id = id;
   newButton.addEventListener("click", function () {
     filterClick(id);
